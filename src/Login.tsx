@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { withRouter, useHistory } from 'react-router-dom';
 
+import "./styles/login.css";
+
 const Login = () => {
   const history = useHistory();
 
@@ -21,12 +23,12 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className="centeredForm">
+      <form className=" ui error form" onSubmit={handleSubmit}>
         <h4>{loginMessage}</h4>
-        <div>
+        <div className="field">
           <label>Email</label>
-          <div>
+          <div className="ui input">
             <input
               type="email"
               placeholder="Email"
@@ -36,9 +38,9 @@ const Login = () => {
             />
           </div>
         </div>
-        <div>
+        <div className="field">
           <label>Password</label>
-          <div>
+          <div className="ui input">
             <input
               type="password"
               placeholder="Password"
@@ -48,8 +50,8 @@ const Login = () => {
             />
           </div>
         </div>
-        <div></div>
-        <button>Login</button>
+        <div className="ui error message"></div>
+        <button className="ui button">Login</button>
       </form>
     </div>
   );

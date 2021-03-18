@@ -1,15 +1,17 @@
 import { Link, NavLink } from 'react-router-dom';
 
+import "./styles/menu.css";
+
 const Menu = () => {
   return (
-    <div>
-      <NavLink to={'/users'} activeClassName="active">
+    <div className="ui secondary  menu">
+      <NavLink className="item" to={'/users'} activeClassName="active">
         Users
       </NavLink>
-      <NavLink to={'/posts'} activeClassName="active">
+      <NavLink className="item" to={'/posts'} activeClassName="active">
         Posts
       </NavLink>
-      <div>
+      <div className="right menu">
         <Link to={'/'}>Logout</Link>
       </div>
     </div>

@@ -4,6 +4,8 @@ import Menu from './Menu';
 import PopUpUser from './PopUp/PopUpUsers';
 import { usersUrl, postsUrl } from './utilities';
 
+import "./styles/table.css";
+
 const Users = () => {
   const [users, setUsers] = useState([]);
   const [posts, setPosts] = useState([]);
@@ -60,8 +62,8 @@ const Users = () => {
   return (
     <div>
       <Menu />
-      <div>
-        <h2>Users</h2>
+      <div className="ui secondary menu">
+        <h2 className="item">Users</h2>
 
         <div className="ui icon input">
           <input

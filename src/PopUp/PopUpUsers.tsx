@@ -1,8 +1,10 @@
+import "../styles/popUpStyle.css";
+
 const PopUpUser = (props: any) => {
   return (
-    <div>
-      <div>
-        <button onClick={props.closePopup}>Close</button>
+    <div className="popup">
+      <div className="popupInner">
+        <button className="ui secondary button buttonAdjusted" onClick={props.closePopup}>Close</button>
         <h2>{props.user.name}</h2>
         <p>ID: {props.user.id}</p>
         <p>Username: {props.user.username}</p>

@@ -4,6 +4,8 @@ import Menu from './Menu';
 import PopupPosts from './PopUp/PopUpPosts';
 import { usersUrl, postsUrl } from './utilities';
 
+import "./styles/table.css";
+
 const Posts = () => {
   const [users, setUsers] = useState([]);
   const [posts, setPosts] = useState([]);
