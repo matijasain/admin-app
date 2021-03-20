@@ -1,12 +1,12 @@
+import {FC} from "react";
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import Login from './Login';
 import Users from './Users';
 import Posts from './Posts';
-
 import NotFound from './NotFound';
 
-function App() {
+const App:FC = () => {
   return (
     <Router>
       <div>

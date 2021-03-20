@@ -1,22 +1,24 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, FC, ChangeEvent } from 'react';
 
 import Menu from './Menu';
 import PopUpUser from './PopUp/PopUpUsers';
 import { usersUrl, postsUrl } from './utilities';
+import { IUsers } from "./TSInterfaces/UsersInterface"
+import { IPosts } from './TSInterfaces/PostsInterface';
 
 import "./styles/table.css";
 
-const Users = () => {
-  const [users, setUsers] = useState([]);
-  const [posts, setPosts] = useState([]);
+const Users:FC = () => {
+  const [users, setUsers] = useState<IUsers[]>([]);
+  const [posts, setPosts] = useState<IPosts[]>([]);
   const [selectedUser, setSelectedUser] = useState([]);
-  const [searched, setSearched] = useState('');
-  const [direction, setDirection] = useState('ascending');
-  const [column, setColumn] = useState('name');
-  const [showPopUp, setShowPopUp] = useState(false);
+  const [searched, setSearched] = useState<string>('');
+  const [direction, setDirection] = useState<string>('ascending');
+  const [column, setColumn] = useState<string>('name');
+  const [showPopUp, setShowPopUp] = useState<boolean>(false);
 
   const filteredTable = () => {
-    return users.filter((user: any) => {
+    return users.filter((user) => {
       const searchedUser = searched.toLowerCase();
       return (
         user.name.toLowerCase().includes(searchedUser) ||
@@ -69,7 +71,7 @@ const Users = () => {
           <input
             type="text"
             placeholder="Search..."
-            onChange={(event) => setSearched(event.target.value)}
+            onChange={(event:ChangeEvent<HTMLInputElement>) => setSearched(event.target.value)}
             value={searched}
           />
           <i className="search link icon"></i>

@@ -1,19 +1,21 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, FC, ChangeEvent } from 'react';
 
 import Menu from './Menu';
 import PopupPosts from './PopUp/PopUpPosts';
 import { usersUrl, postsUrl } from './utilities';
+import { IUsers } from "./TSInterfaces/UsersInterface"
+import { IPosts } from './TSInterfaces/PostsInterface';
 
 import "./styles/table.css";
 
-const Posts = () => {
-  const [users, setUsers] = useState([]);
-  const [posts, setPosts] = useState([]);
+const Posts:FC = () => {
+  const [users, setUsers] = useState<IUsers[]>([]);
+  const [posts, setPosts] = useState<IPosts[]>([]);
   const [selectedPost, setSelectedPost] = useState([]);
-  const [searched, setSearched] = useState('');
-  const [direction, setDirection] = useState('ascending');
-  const [column, setColumn] = useState('name');
-  const [showPopUp, setShowPopUp] = useState(false);
+  const [searched, setSearched] = useState<string>('');
+  const [direction, setDirection] = useState<string>('ascending');
+  const [column, setColumn] = useState<string>('name');
+  const [showPopUp, setShowPopUp] = useState<boolean>(false);
 
   const assignUserToPost: any = (userId: any) => {
     return users.find((user: any) => user.id === userId);
@@ -74,13 +76,14 @@ const Posts = () => {
   return (
     <div>
       <Menu />
+      {console.log("posts", posts)}
       <div className="ui secondary menu">
         <h2 className="item">Posts</h2>
         <div className="ui icon input">
           <input
             type="text"
             placeholder="Search..."
-            onChange={(event) => setSearched(event.target.value)}
+            onChange={(event:ChangeEvent<HTMLInputElement>) => setSearched(event.target.value)}
             value={searched}
           />
           <i className="search link icon"></i>

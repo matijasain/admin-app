@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import { useState, FC,ChangeEvent } from 'react';
 import { withRouter, useHistory } from 'react-router-dom';
 
 import "./styles/login.css";
 
-const Login = () => {
+const Login:FC = () => {
   const history = useHistory();
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [loginMessage, setLoginMessage] = useState('');
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [loginMessage, setLoginMessage] = useState<string>('');
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
@@ -33,7 +33,7 @@ const Login = () => {
               type="email"
               placeholder="Email"
               value={email}
-              onChange={(event) => setEmail(event.target.value)}
+              onChange={(event:ChangeEvent<HTMLInputElement>) => setEmail(event.target.value)}
               required
             />
           </div>
@@ -45,7 +45,7 @@ const Login = () => {
               type="password"
               placeholder="Password"
               value={password}
-              onChange={(event) => setPassword(event.target.value)}
+              onChange={(event:ChangeEvent<HTMLInputElement>) => setPassword(event.target.value)}
               required
             />
           </div>

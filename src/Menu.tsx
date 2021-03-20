@@ -1,8 +1,9 @@
+import { FC } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
 import "./styles/menu.css";
 
-const Menu = () => {
+const Menu:FC = () => {
   return (
     <div className="ui secondary  menu">
       <NavLink className="item" to={'/users'} activeClassName="active">
